@@ -32,6 +32,6 @@ EXPOSE 9090
 
 USER hortonworks
 
-ENTRYPOINT ["entrypoint.sh"]
+ENTRYPOINT ["./entrypoint.sh"]
 
 CMD ["./bin/registry-server-start.sh","./conf/registry.yaml"]
