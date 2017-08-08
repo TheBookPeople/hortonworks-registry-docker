@@ -13,7 +13,7 @@ services:
         aliases:
           - db
     environment:
-      MYSQL_ROOT_PASSWORD: passw0rd
+      MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: hortonworks
       MYSQL_USER: hortonworks
       MYSQL_PASSWORD: password
