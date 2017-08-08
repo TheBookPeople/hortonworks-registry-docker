@@ -2,8 +2,6 @@
 
 A Docker image for running Hortonworks Schema Registry with MySQL
 
-## Hortonworks Documentation
-
 http://registry-project.readthedocs.io/en/latest/
 
 ## Environment Variables
@@ -46,12 +44,12 @@ Registry Port
 Useful links once image is running.
 
 
-###Main UI
+### Main UI
 
 http://localhost:9090
 
 
-###Swagger UI
+### Swagger UI
 
 http://localhost:9090/api/swagger
 
