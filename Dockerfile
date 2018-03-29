@@ -6,11 +6,14 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/* && \
     groupadd -r hortonworks && useradd --no-log-init -r -g hortonworks hortonworks && \
     mkdir -p /opt/ && \
-    wget -O /opt/hortonworks-registry-0.3.0.zip https://github.com/hortonworks/registry/releases/download/v0.3.0/hortonworks-registry-0.3.0.zip && \
-    unzip /opt/hortonworks-registry-0.3.0.zip -d /opt && \
-    chown -R hortonworks:hortonworks /opt/hortonworks-registry-0.3.0 && \
-    rm /opt/hortonworks-registry-0.3.0.zip && \
-    ln -s /opt/hortonworks-registry-0.3.0 /opt/hortonworks-registry
+    wget -O /opt/hortonworks-registry-0.5.1.zip https://github.com/hortonworks/registry/releases/download/v0.5.1/hortonworks-registry-0.5.1.zip && \
+    unzip /opt/hortonworks-registry-0.5.1.zip -d /opt && \
+    chown -R hortonworks:hortonworks /opt/hortonworks-registry-0.5.1 && \
+    rm /opt/hortonworks-registry-0.5.1.zip && \
+    ln -s /opt/hortonworks-registry-0.5.1 /opt/hortonworks-registry
+
+RUN  wget -O /opt/hortonworks-registry/libs/mariadb-java-client-2.2.3.jar https://downloads.mariadb.com/Connectors/java/connector-java-2.2.3/mariadb-java-client-2.2.3.jar
+
 
 WORKDIR /opt/hortonworks-registry
 
@@ -20,7 +23,7 @@ COPY wait-for-it.sh /opt/hortonworks-registry/wait-for-it.sh
 
 RUN chmod +x /opt/hortonworks-registry/entrypoint.sh && \
     chmod +x /opt/hortonworks-registry/wait-for-it.sh && \
-    chown -R hortonworks:hortonworks /opt/hortonworks-registry-0.3.0
+    chown -R hortonworks:hortonworks /opt/hortonworks-registry-0.5.1
 
 ENV DB_NAME schema_registry
 ENV DB_USER registry_user

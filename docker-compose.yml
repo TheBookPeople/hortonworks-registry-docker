@@ -3,11 +3,11 @@ version: '2'
 services:
 
   db:
-    image: mysql:5.7.17
+    image: mariadb:10.0.34
     ports:
       - "3307:3306"
-    volumes:
-      - 'mysqldb_data:/var/lib/mysql'
+#    volumes:
+#      - 'mysqldb_data:/var/lib/mysql'
     networks:
       default:
         aliases:
@@ -20,11 +20,13 @@ services:
 
 
   registry:
+    image: hortonworks-registry
     build: .
     depends_on:
       - db
     ports:
       - "9090:9090"
+      - "9091:9091"
     environment:
       DB_NAME: hortonworks
       DB_USER: hortonworks
