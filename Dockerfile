@@ -12,6 +12,9 @@ RUN apt-get update && \
     rm /opt/hortonworks-registry-0.5.1.zip && \
     ln -s /opt/hortonworks-registry-0.5.1 /opt/hortonworks-registry
 
+RUN  wget -O /opt/hortonworks-registry/libs/mariadb-java-client-2.2.3.jar https://downloads.mariadb.com/Connectors/java/connector-java-2.2.3/mariadb-java-client-2.2.3.jar
+
+
 WORKDIR /opt/hortonworks-registry
 
 COPY config/registry.yaml.template /opt/hortonworks-registry/conf/registry.yaml.template
